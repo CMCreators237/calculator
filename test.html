@@ -1,0 +1,195 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list app.</title>
+    <style>
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(13, 43, 56);
+}
+.container{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+form{
+    background-color: white;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+
+}
+form h1{
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(13, 43, 56);
+}
+.input{
+    display: flex;
+}
+.input input{
+
+    flex: 1;
+    border: none;
+   outline: none;
+   box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+   padding: 10px;
+   font-size: 20px;
+   border-radius: 15px;
+   margin-left: 10px;
+   cursor: pointer;
+}
+
+.input button{
+    background-color: rgb(13, 43, 56);
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.list {
+    padding-left: 0;
+    
+}
+.list li{
+    list-style: none;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: lighter;
+    cursor: pointer;
+    
+    color: #424040;
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+.delete-btn {
+    background-color: #ff4d4d; /* Red color for delete button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 20px; /* Push the button to the right */
+}
+
+    </style>
+</head>
+
+<body>
+   <div class="container">
+       <form action="">
+
+        <h1>Todo List</h1>
+        <div class="input">
+            <input type="text" id="input" placeholder="Enter your task">
+            <button id="submitBtn">Add </button>
+        </div>
+        <ul id="list" class="list">
+       
+        
+        </ul>
+        
+       </form>
+   </div>
+</body>
+<script>
+
+var submitBtn = document.getElementById("submitBtn");
+   var input = document.getElementById("input");
+   var list = document.getElementById("list");
+   submitBtn.addEventListener('click', function(event){
+    event.preventDefault();
+    if(input.value === ""){
+        alert("Please enter a task");
+        return false;
+        
+   
+    
+    }else{
+        var li = document.createElement('li');
+    li.innerHTML= input.value;
+    list.appendChild(li);
+    input.value = "";
+
+     var deletebtn =document.createElement("button");
+     deletebtn.innerHTML = "Delete";
+     deletebtn.className = "delete-btn"
+     li.appendChild(deletebtn);
+
+     deletebtn.addEventListener('click', function(){
+        li.remove();
+     });
+     return true;
+    }
+  
+   });
+ 
+
+ 
+ /*var btn = document.getElementById("btn");
+ var dbtn = document.getElementById("dbtn");
+ var element = document.getElementById("element");
+ 
+
+   function handleClick(event){
+    element.style.backgroundColor= "red";
+   }
+
+   btn.addEventListener('click', handleClick);
+
+   dbtn.addEventListener('click', function(){
+    btn.removeEventListener('click', handleClick);
+    btn.remove();
+    dbtn.remove();
+   });
+     */
+   
+
+ 
+
+    
+  /* var add = document.getElementById("add");
+   var input = document.getElementById("input");
+   add.addEventListener('click', function(event){
+    event.preventDefault();
+
+    
+    
+    var li = document.createElement("li")
+     li.innerHTML= input.value;
+     var list =document.getElementById("list");
+     list.appendChild(li); 
+     input.value = "";
+
+     var deletBtn = document.createElement("button");
+    deletBtn.textContent = "delete";
+    li.appendChild(deletBtn);
+    deletBtn.addEventListener('click', function(event){
+        li.remove();
+    });
+   });
+*/
+   
+</script>
+</html>
